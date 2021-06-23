@@ -325,7 +325,7 @@ class OneSignalClient
         return $this->sendNotificationCustom($params);
     }
 
-    public function sendNotificationToSegment($message, $segment, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null)
+    public function sendNotificationToSegment($message, $segment, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null, $additonalParams = [])
     {
         $contents = array(
             config('app.locale') => $message
@@ -364,6 +364,8 @@ class OneSignalClient
                 config('app.locale') => $subtitle
             );
         }
+
+        $params = array_merge($params, $additonalParams);
 
         return $this->sendNotificationCustom($params);
     }

@@ -147,7 +147,7 @@ class OneSignalClient
     public function sendNotificationToUser($message, $userId, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null)
     {
         $contents = array(
-            "en" => $message
+            config('app.locale') => $message
         );
 
         $params = array(
@@ -174,13 +174,13 @@ class OneSignalClient
 
         if (isset($headings)) {
             $params['headings'] = array(
-                "en" => $headings
+                config('app.locale') => $headings
             );
         }
 
         if (isset($subtitle)) {
             $params['subtitle'] = array(
-                "en" => $subtitle
+                config('app.locale') => $subtitle
             );
         }
 
@@ -200,7 +200,7 @@ class OneSignalClient
     public function sendNotificationToExternalUser($message, $userId, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null)
     {
         $contents = array(
-            "en" => $message
+            config('app.locale') => $message
         );
 
         $params = array(
@@ -227,13 +227,13 @@ class OneSignalClient
 
         if (isset($headings)) {
             $params['headings'] = array(
-                "en" => $headings
+                config('app.locale') => $headings
             );
         }
 
         if (isset($subtitle)) {
             $params['subtitle'] = array(
-                "en" => $subtitle
+                config('app.locale') => $subtitle
             );
         }
 
@@ -242,7 +242,7 @@ class OneSignalClient
     public function sendNotificationUsingTags($message, $tags, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null)
     {
         $contents = array(
-            "en" => $message
+            config('app.locale') => $message
         );
 
         $params = array(
@@ -269,13 +269,13 @@ class OneSignalClient
 
         if (isset($headings)) {
             $params['headings'] = array(
-                "en" => $headings
+                config('app.locale') => $headings
             );
         }
 
         if (isset($subtitle)) {
             $params['subtitle'] = array(
-                "en" => $subtitle
+                config('app.locale') => $subtitle
             );
         }
 
@@ -285,7 +285,7 @@ class OneSignalClient
     public function sendNotificationToAll($message, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null)
     {
         $contents = array(
-            "en" => $message
+            config('app.locale') => $message
         );
 
         $params = array(
@@ -312,13 +312,13 @@ class OneSignalClient
 
         if (isset($headings)) {
             $params['headings'] = array(
-                "en" => $headings
+                config('app.locale') => $headings
             );
         }
 
         if (isset($subtitle)) {
             $params['subtitle'] = array(
-                "en" => $subtitle
+                config('app.locale') => $subtitle
             );
         }
 
@@ -328,7 +328,7 @@ class OneSignalClient
     public function sendNotificationToSegment($message, $segment, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null)
     {
         $contents = array(
-            "en" => $message
+            config('app.locale') => $message
         );
 
         $params = array(
@@ -355,13 +355,13 @@ class OneSignalClient
 
         if (isset($headings)) {
             $params['headings'] = array(
-                "en" => $headings
+                config('app.locale') => $headings
             );
         }
 
         if (isset($subtitle)) {
             $params['subtitle'] = array(
-                "en" => $subtitle
+                config('app.locale') => $subtitle
             );
         }
 

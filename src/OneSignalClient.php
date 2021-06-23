@@ -18,6 +18,7 @@ class OneSignalClient
     const ENDPOINT_NOTIFICATIONS = "/notifications";
     const ENDPOINT_PLAYERS = "/players";
     const ENDPOINT_APPS = "/apps";
+    const ENDPOINT_SEGMENTS = "/segments";
 
     protected $client;
     protected $headers;
@@ -519,6 +520,14 @@ class OneSignalClient
 
         $method = strtolower($method);
         return $this->{$method}($endpoint);
+    }
+
+    public function getSegments(string $app_id = null)
+    {
+        if (!$app_id)
+            $app_id = $this->appId;
+        $endpoint = self::ENDPOINT_SEGMENTS . '?app_id=' . $app_id;
+        return $this->usesJSON()->requiresAuth()->get($endpoint);
     }
 
     public function post($endPoint)

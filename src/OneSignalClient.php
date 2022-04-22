@@ -70,7 +70,13 @@ class OneSignalClient
         return $this;
     }
 
-    public function __construct($appId, $restApiKey, $userAuthKey)
+    /**
+     * @param $appId
+     * @param $restApiKey
+     * @param $userAuthKey
+     * @param int $guzzleClientTimeout
+     */
+    public function __construct($appId, $restApiKey, $userAuthKey, $guzzleClientTimeout = 0)
     {
         $this->appId = $appId;
         $this->restApiKey = $restApiKey;
@@ -78,6 +84,7 @@ class OneSignalClient
 
         $this->client = new Client([
             'handler' => $this->createGuzzleHandler(),
+            'timeout' => $guzzleClientTimeout,
         ]);
         $this->headers = ['headers' => []];
         $this->additionalParams = [];
@@ -401,8 +408,8 @@ class OneSignalClient
         }
 
         // Make sure to use included_segments
-        if (empty($parameters['included_segments']) && empty($parameters['include_player_ids'])) {
-            $parameters['included_segments'] = ['all'];
+        if (empty($parameters['included_segments']) && empty($parameters['include_player_ids']) && empty('include_external_user_ids')) {
+            $parameters['included_segments'] = ['All'];
         }
 
         $parameters = array_merge($parameters, $this->additionalParams);
